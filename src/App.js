@@ -1,14 +1,12 @@
-import "./App.css";
-import { useGetTheMovieApiQuery } from "./store/apis/TheMovieApi";
+import "./style/main.css";
 
 function App() {
-  const { data } = useGetTheMovieApiQuery("", {
-    refetchOnMountOrArgChange: true,
-  });
-
-  // console.log("data", data);
-
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <div className="home"></div>
+      <div className="moviesAndTv"></div>
+    </div>
+  );
 }
 
 export default App;
