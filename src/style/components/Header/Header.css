@@ -1,15 +1,3 @@
-.home {
-  width: 3rem;
-  height: 6rem;
-  background-color: red;
-}
-
-.moviesAndTv {
-  width: 3rem;
-  height: 6rem;
-  background-color: blue;
-}
-
 .header-root {
   display: flex;
   justify-content: center;
@@ -144,9 +132,4 @@
 }
 .header-root .header-wrapper .header-container .right-block li:last-child {
   margin: 0;
-}
-
-:root {
-  --darkBlue: 3, 37, 65;
-  --lightGreen: 1, 198, 172;
-}/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=Header.css.map */
