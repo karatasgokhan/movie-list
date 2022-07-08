@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 import * as ROUTES from "../../constants/routePath";
@@ -41,6 +42,10 @@ export default function Header() {
 
     {
       value: <div className="circle">G</div>,
+      search: false,
+    },
+    {
+      value: <FontAwesomeIcon icon={faBell} />,
       search: false,
     },
     {
