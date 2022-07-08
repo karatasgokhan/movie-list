@@ -1,0 +1,40 @@
+.footer-root {
+  background-color: rgba(var(--darkBlue), 1);
+}
+.footer-root .footer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+}
+.footer-root .footer-wrapper .left-block {
+  margin: 0 2.5rem 0 0;
+}
+.footer-root .footer-wrapper .left-block .logo-item {
+  width: 10rem;
+}
+.footer-root .footer-wrapper .left-block .logo-item img {
+  display: block;
+  width: 100%;
+}
+.footer-root .footer-wrapper .right-block .menu-block {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.footer-root .footer-wrapper .right-block .menu-block .menu-item {
+  margin: 0 2.5rem 0 0;
+  line-height: 1.5;
+}
+.footer-root .footer-wrapper .right-block .menu-block .menu-item h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.2rem;
+}
+.footer-root .footer-wrapper .right-block .menu-block .menu-item ul li {
+  cursor: pointer;
+  color: #fff;
+}
+.footer-root .footer-wrapper .right-block .menu-block .menu-item:last-child {
+  margin: 0;
+}/*# sourceMappingURL=Footer.css.map */

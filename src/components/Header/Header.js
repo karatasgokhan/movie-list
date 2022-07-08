@@ -95,7 +95,7 @@ export default function Header() {
                   srcSet="/assets/img/logo.webp"
                   type="image/webp"
                 />
-                <img src="/assets/img/logo.png" alt="Movie" />
+                <img src="/assets/img/logo.png" alt="Movie Logo" />
               </picture>
             </NavLink>
             <ul className="menu-item">
