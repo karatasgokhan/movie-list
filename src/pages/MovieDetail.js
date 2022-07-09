@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+import { useGetTheMovieDetailApiQuery } from "../store/apis/TheMovieApi";
 
 import DropdownMenu from "../components/DropdownMenu/DropdownMenu";
 
 export default function MovieDetail() {
+  const [backgroundImage, setBackgroundImage] = useState("");
+  const { data } = useGetTheMovieDetailApiQuery("43539", {
+    refetchOnMountOrArgChange: true,
+  });
+
+  useEffect(() => {
+    setBackgroundImage(
+      `https://image.tmdb.org/t/p/original${data.backdrop_path}`
+    );
+  }, []);
+
+  console.log("backgroundImage", backgroundImage);
+
+  console.log("data", data);
+
   const menuContent = {
     header: false,
     content: [
@@ -52,7 +69,14 @@ export default function MovieDetail() {
             <DropdownMenu content={menuContent} />
           </div>
         </div>
-        <div className="detail-wrapper">
+        <div
+          className="detail-wrapper"
+          style={{
+            backgroundImage: "url(" + backgroundImage + ")",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
           <div className="detail-container">
             <div className="detail-block"></div>
           </div>

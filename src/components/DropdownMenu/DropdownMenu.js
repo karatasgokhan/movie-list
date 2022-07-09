@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function DropdownMenu(content) {
-  console.log("content", content);
   return (
     <ul className="dropdown-menu-container">
       {content?.content?.content.map((item, index) => {

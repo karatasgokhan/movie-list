@@ -23,7 +23,10 @@
   align-items: center;
   justify-content: center;
 }
-
+.detail-root .detail-wrapper {
+  height: 570px;
+  background-image: linear-gradient(to right, rgb(74, 32, 32) 150px, rgba(74, 32, 32, 0.84) 100%);
+}
 .not-found-root .not-found-wrapper {
   display: flex;
   flex-direction: column;
@@ -158,6 +161,7 @@
 .footer-root {
   background-color: rgba(var(--darkBlue), 1);
   width: 100%;
+  margin: 2rem 0 0 0;
 }
 .footer-root .footer-wrapper {
   display: flex;

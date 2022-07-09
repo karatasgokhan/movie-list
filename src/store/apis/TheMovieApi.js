@@ -10,13 +10,13 @@ export const theMovieApi = createApi({
   reducerPath: "theMovieApi",
   baseQuery: baseQuery,
   endpoints: (builder) => ({
-    getTheMovieListApi: builder.query({
-      query: () => ({
-        url: `/genre/movie/list`,
+    getTheMovieDetailApi: builder.query({
+      query: (id) => ({
+        url: `/movie/${id}`,
         method: "GET",
       }),
     }),
   }),
 });
 
-export const { useGetTheMovieListApiQuery } = theMovieApi;
+export const { useGetTheMovieDetailApiQuery } = theMovieApi;
