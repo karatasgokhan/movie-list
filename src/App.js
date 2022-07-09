@@ -27,22 +27,8 @@ function App() {
             </DefaultLayout>
           }
         />
-        <Route
-          path={ROUTES.MOVIEDETAIL}
-          element={
-            <DefaultLayout>
-              <MovieDetail />
-            </DefaultLayout>
-          }
-        />
-        <Route
-          path={ROUTES.TVDETAIL}
-          element={
-            <DefaultLayout>
-              <TvDetail />
-            </DefaultLayout>
-          }
-        />
+        <Route path={ROUTES.MOVIEDETAIL} element={<MovieDetail />} />
+        <Route path={ROUTES.TVDETAIL} element={<TvDetail />} />
         <Route
           path={ROUTES.NOTFOUNDPAGE}
           element={

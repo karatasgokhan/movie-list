@@ -7,6 +7,7 @@ import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 import * as ROUTES from "../../constants/routePath";
+import DropdownMenu from "../DropdownMenu/DropdownMenu";
 
 export default function Header() {
   let headerRoot = useRef();
@@ -54,39 +55,42 @@ export default function Header() {
     },
   ];
 
-  const leftMenuContent = [
-    {
-      head: "Movies",
-      dropdown: [
-        { value: "Popular" },
-        { value: "Now playing" },
-        { value: "Upcoming" },
-        { value: "Top Rated" },
-      ],
-    },
-    {
-      head: "Tv Shows",
-      dropdown: [
-        { value: "Popular" },
-        { value: "Airing Today" },
-        { value: "On Tv" },
-        { value: "Top Rated" },
-      ],
-    },
-    {
-      head: "People",
-      dropdown: [{ value: "Popular People" }],
-    },
-    {
-      head: "More",
-      dropdown: [
-        { value: "Discussions" },
-        { value: "Leardboard" },
-        { value: "Support" },
-        { value: "API" },
-      ],
-    },
-  ];
+  const leftMenuContent = {
+    header: true,
+    content: [
+      {
+        head: "Movies",
+        dropdown: [
+          { value: "Popular" },
+          { value: "Now playing" },
+          { value: "Upcoming" },
+          { value: "Top Rated" },
+        ],
+      },
+      {
+        head: "Tv Shows",
+        dropdown: [
+          { value: "Popular" },
+          { value: "Airing Today" },
+          { value: "On Tv" },
+          { value: "Top Rated" },
+        ],
+      },
+      {
+        head: "People",
+        dropdown: [{ value: "Popular People" }],
+      },
+      {
+        head: "More",
+        dropdown: [
+          { value: "Discussions" },
+          { value: "Leardboard" },
+          { value: "Support" },
+          { value: "API" },
+        ],
+      },
+    ],
+  };
 
   return (
     <header ref={headerRoot} className="header-root">
@@ -103,25 +107,10 @@ export default function Header() {
                 <img src="/assets/img/logo.png" alt="Movie Logo" />
               </picture>
             </NavLink>
-            <ul className="menu-item">
-              {leftMenuContent.map((item, index) => {
-                return (
-                  <li key={index}>
-                    {item.head}
-                    <div className="dropdown">
-                      <ul>
-                        {item.dropdown.map((item2, index2) => {
-                          return <li key={index2}>{item2.value}</li>;
-                        })}
-                      </ul>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
+            <DropdownMenu content={leftMenuContent} />
           </div>
           <div className="right-block">
-            <ul className="menu-item">
+            <ul>
               {rightMenuContent.map((item, index) => {
                 return (
                   <li className={`${item.search ? "search" : ""}`} key={index}>

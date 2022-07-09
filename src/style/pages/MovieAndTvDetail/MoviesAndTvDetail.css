@@ -1,5 +1,8 @@
-.moviesAndTv {
-  width: 3rem;
-  height: 6rem;
-  background-color: blue;
+.detail-root {
+  margin: 4rem 0 0 0;
+}
+.detail-root .dropdown-detail-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=MoviesAndTvDetail.css.map */
