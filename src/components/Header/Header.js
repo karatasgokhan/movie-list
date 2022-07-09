@@ -39,15 +39,15 @@ export default function Header() {
       search: false,
     },
     { value: <div className="translate-item">EN</div>, search: false },
-
-    {
-      value: <div className="circle">G</div>,
-      search: false,
-    },
     {
       value: <FontAwesomeIcon icon={faBell} />,
       search: false,
     },
+    {
+      value: <div className="circle">G</div>,
+      search: false,
+    },
+
     {
       value: <FontAwesomeIcon icon={faMagnifyingGlass} />,
       search: true,

@@ -17,6 +17,15 @@ h3,
 h4 {
   margin: 0;
 }
+input {
+  border: none;
+}
+input:focus {
+  border: none !important;
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

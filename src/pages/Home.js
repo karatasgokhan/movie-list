@@ -17,17 +17,39 @@ export default function Home() {
 
   return (
     <>
-      <section className="search-root">
+      <section
+        style={{
+          backgroundImage:
+            'linear-gradient(to right, rgba(var(--darkBlue), 0.8) 0%, rgba(var(--darkBlue), 0) 100%), url("/assets/img/subHeader.jpg")',
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          minHeight: "300px",
+          maxHeight: "360px",
+          display: "flex",
+        }}
+        className="search-root"
+      >
         <div className="search-wrapper">
           <h2>Welcome.</h2>
           <h3>
             Millions of movies, TV shows and people to discover. Explore now.
           </h3>
           <div className="search-block">
-            <label htmlFor="">
-              <input type="text" onChange={handleChange} />
+            <label>
+              <input
+                type="text"
+                placeholder="Search for a movie, tv show, person......"
+                onChange={handleChange}
+              />
             </label>
-            <input type="submit" />
+            <input className="search-button" type="submit" value="Search" />
+          </div>
+        </div>
+      </section>
+      <section className="content-root">
+        <div className="content-wrapper">
+          <div className="content-contaier">
+            <div className="content-block"></div>
           </div>
         </div>
       </section>
