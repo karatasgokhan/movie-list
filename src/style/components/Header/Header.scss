@@ -71,14 +71,14 @@
                 }
               }
             }
-          }
-          li:hover {
-            .dropdown {
-              display: block;
+            &:hover {
+              .dropdown {
+                display: block;
+              }
             }
-          }
-          li:last-child {
-            margin: 0;
+            &:last-child {
+              margin: 0;
+            }
           }
         }
       }

@@ -32,9 +32,9 @@
       top: 0;
       right: -1px;
       color: #fff;
-    }
-    .search-button:hover {
-      color: var(--darkBlue);
+      &:hover {
+        color: var(--darkBlue);
+      }
     }
   }
 }

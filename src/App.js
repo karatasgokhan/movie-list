@@ -2,10 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./style/main.css";
 
-import MovieDetail from "./pages/MovieDetail";
 import Home from "./pages/Home";
 import TvDetail from "./pages/TvDetail";
-import NotFoundPage from "./pages/TvDetail";
+import MovieDetail from "./pages/MovieDetail";
+import NotFoundPage from "./pages/NotFoundPage";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
