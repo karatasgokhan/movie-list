@@ -10,6 +10,8 @@ import NotFoundPage from "./pages/TvDetail";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
+import DefaultLayout from "./layout/DefaultLayout";
+
 import * as ROUTES from "./constants/routePath";
 
 function App() {
@@ -17,10 +19,38 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path={ROUTES.HOME} element={<Home />} />
-        <Route path={ROUTES.MOVIEDETAIL} element={<MovieDetail />} />
-        <Route path={ROUTES.TVDETAIL} element={<TvDetail />} />
-        <Route path={ROUTES.NOTFOUNDPAGE} element={<NotFoundPage />} />
+        <Route
+          path={ROUTES.HOME}
+          element={
+            <DefaultLayout>
+              <Home />
+            </DefaultLayout>
+          }
+        />
+        <Route
+          path={ROUTES.MOVIEDETAIL}
+          element={
+            <DefaultLayout>
+              <MovieDetail />
+            </DefaultLayout>
+          }
+        />
+        <Route
+          path={ROUTES.TVDETAIL}
+          element={
+            <DefaultLayout>
+              <TvDetail />
+            </DefaultLayout>
+          }
+        />
+        <Route
+          path={ROUTES.NOTFOUNDPAGE}
+          element={
+            <DefaultLayout>
+              <NotFoundPage />
+            </DefaultLayout>
+          }
+        />
       </Routes>
       <Footer />
     </BrowserRouter>
