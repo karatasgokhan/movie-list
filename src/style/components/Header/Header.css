@@ -71,9 +71,14 @@
 }
 .header-root .header-wrapper .header-container .left-block .menu-item li .dropdown ul li {
   padding: 0.5rem 0.8rem;
+  padding-right: 3rem;
   font-weight: 400;
   white-space: nowrap;
   color: #000;
+  margin: 0;
+}
+.header-root .header-wrapper .header-container .left-block .menu-item li .dropdown ul li:hover {
+  background-color: #f8f9fa;
 }
 .header-root .header-wrapper .header-container .left-block .menu-item li:hover .dropdown {
   display: block;

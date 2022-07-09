@@ -65,9 +65,14 @@
               ul {
                 li {
                   padding: 0.5rem 0.8rem;
+                  padding-right: 3rem;
                   font-weight: 400;
                   white-space: nowrap;
                   color: #000;
+                  margin: 0;
+                  &:hover {
+                    background-color: #f8f9fa;
+                  }
                 }
               }
             }
