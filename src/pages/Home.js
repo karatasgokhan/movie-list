@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Search from "../components/Search/Search";
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "The Movie Database(TMDB)";
+  }, []);
   return (
     <>
       <Search />

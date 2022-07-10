@@ -32,6 +32,12 @@ export default function MovieDetail() {
   });
 
   useEffect(() => {
+    document.title = `${data?.original_title}(${
+      data?.release_date.split("-")[0]
+    })`;
+  }, [data?.original_title, data?.release_date]);
+
+  useEffect(() => {
     setBackgroundImage(`${imageBackPath}${data?.backdrop_path}`);
   }, [data]);
 
