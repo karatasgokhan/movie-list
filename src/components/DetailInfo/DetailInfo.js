@@ -29,12 +29,16 @@ export default function DetailInfo(props) {
             {props?.data?.release_date} (
             {props?.data?.production_countries[0].iso_3166_1})
           </span>
-          <span className="genres">
+          <span className="genres dot">
             {props?.data?.genres.map((item, index) => {
-              return <span key={index}> {item.name}</span>;
+              return (
+                <span className="comma" key={index}>
+                  {item.name}
+                </span>
+              );
             })}
           </span>
-          <span className="runtime">
+          <span className="runtime dot">
             {`${Math.floor(props?.data?.runtime / 60)}h${
               props?.data?.runtime % 60
             }m`}
