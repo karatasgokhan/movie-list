@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import { Container, Row, Col } from "react-grid-system";
 
-import { useGetTheMovieDetailApiQuery } from "../store/apis/TheMovieApi";
+import {
+  useGetTheMovieDetailApiQuery,
+  useGetTheMovieReleaseDatesApiQuery,
+} from "../store/apis/TheMovieApi";
 
 import DropdownMenu from "../components/DropdownMenu/DropdownMenu";
 
@@ -10,17 +13,25 @@ export default function MovieDetail() {
   const [backgroundImage, setBackgroundImage] = useState("");
   const imageBackPath = "https://image.tmdb.org/t/p/original";
   const imagePosterPath = "https://image.tmdb.org/t/p/w500";
+
   const { data } = useGetTheMovieDetailApiQuery("43539", {
     refetchOnMountOrArgChange: true,
   });
 
+  const { data: releaseDatesData } = useGetTheMovieReleaseDatesApiQuery(
+    "43539",
+    {
+      refetchOnMountOrArgChange: true,
+    }
+  );
+
+  const certificationInfo = releaseDatesData?.results.filter(
+    (f) => f.iso_3166_1 === data?.production_countries[0].iso_3166_1
+  )[0].release_dates[0].certification;
+
   useEffect(() => {
     setBackgroundImage(`${imageBackPath}${data?.backdrop_path}`);
   }, [data]);
-
-  console.log("backgroundImage", backgroundImage);
-
-  console.log("data", data);
 
   const menuContent = {
     header: false,
@@ -114,8 +125,36 @@ export default function MovieDetail() {
                   </Col>
                   <Col sm={8}>
                     <div className="right-block">
-                      <p>DENEME</p>
-                    </div>{" "}
+                      <div className="title-item">
+                        <div className="title">
+                          <h2>
+                            {data?.original_title}
+                            <span>({data?.release_date.split("-")[0]})</span>
+                          </h2>
+                        </div>
+                        <div className="title-info">
+                          <span className="certification">
+                            {certificationInfo}
+                          </span>
+                          <span className="release">
+                            {data?.release_date} (
+                            {data?.production_countries[0].iso_3166_1})
+                          </span>
+                          <span className="genres">
+                            {data?.genres.map((item, index) => {
+                              return <span key={index}> {item.name}</span>;
+                            })}
+                          </span>
+                          <span className="runtime">
+                            {`${Math.floor(data?.runtime / 60)}h${
+                              data?.runtime % 60
+                            }m`}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="score-item"></div>
+                      <div className="info-item"></div>
+                    </div>
                   </Col>
                 </Row>
               </Container>

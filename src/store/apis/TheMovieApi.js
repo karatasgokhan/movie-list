@@ -16,7 +16,16 @@ export const theMovieApi = createApi({
         method: "GET",
       }),
     }),
+    getTheMovieReleaseDatesApi: builder.query({
+      query: (id) => ({
+        url: `/movie/${id}/release_dates`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetTheMovieDetailApiQuery } = theMovieApi;
+export const {
+  useGetTheMovieDetailApiQuery,
+  useGetTheMovieReleaseDatesApiQuery,
+} = theMovieApi;
