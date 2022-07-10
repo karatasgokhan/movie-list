@@ -150,6 +150,24 @@
 }
 .detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item li.score .percent {
   margin: 0 0.5rem 0 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item li.score .percent .shadow {
+  width: 70px;
+  height: 70px;
+  opacity: 0.4;
+  position: absolute;
+  left: -5px;
+  top: -5.5 px;
+  border-radius: 50%;
+  background: black;
+  z-index: -1;
 }
 .detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item li.score span {
   font-weight: 700;

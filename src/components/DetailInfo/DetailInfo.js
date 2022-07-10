@@ -1,5 +1,7 @@
 import React from "react";
 
+import CircularProgressbar from "../CircularProgressbar/CircularProgressbar";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBookmark,
@@ -13,6 +15,21 @@ export default function DetailInfo(props) {
   const certificationInfo = props?.releaseDatesData?.results.filter(
     (f) => f.iso_3166_1 === props?.data?.production_countries[0].iso_3166_1
   )[0].release_dates[0].certification;
+
+  const icons = [
+    {
+      icon: <FontAwesomeIcon icon={faList} />,
+    },
+    {
+      icon: <FontAwesomeIcon icon={faHeart} />,
+    },
+    {
+      icon: <FontAwesomeIcon icon={faBookmark} />,
+    },
+    {
+      icon: <FontAwesomeIcon icon={faStar} />,
+    },
+  ];
 
   return (
     <div className="right-block">
@@ -47,25 +64,18 @@ export default function DetailInfo(props) {
       </div>
       <ul className="score-item">
         <li className="score">
-          <div className="percent">
-            <span>{props?.data?.vote_average * 10}</span>
-          </div>
+          <CircularProgressbar data={props.data} />
           <span>
             User <br /> Score
           </span>
         </li>
-        <li className="icon">
-          <FontAwesomeIcon icon={faList} />
-        </li>
-        <li className="icon">
-          <FontAwesomeIcon icon={faHeart} />
-        </li>
-        <li className="icon">
-          <FontAwesomeIcon icon={faBookmark} />
-        </li>
-        <li className="icon">
-          <FontAwesomeIcon icon={faStar} />
-        </li>
+        {icons.map((item, index) => {
+          return (
+            <li key={index} className="icon">
+              {item.icon}
+            </li>
+          );
+        })}
         <li className="play">
           <FontAwesomeIcon icon={faPlay} />
           <span>Play Trailer</span>
