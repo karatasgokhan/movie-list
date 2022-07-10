@@ -5,14 +5,16 @@ import { Container, Row, Col } from "react-grid-system";
 import {
   useGetTheMovieDetailApiQuery,
   useGetTheMovieReleaseDatesApiQuery,
+  useGetTheMovieCreditsApiQuery,
 } from "../store/apis/TheMovieApi";
 
 import DropdownMenu from "../components/DropdownMenu/DropdownMenu";
+import Poster from "../components/Poster/Poster";
+import DetailInfo from "../components/DetailInfo/DetailInfo";
 
 export default function MovieDetail() {
   const [backgroundImage, setBackgroundImage] = useState("");
   const imageBackPath = "https://image.tmdb.org/t/p/original";
-  const imagePosterPath = "https://image.tmdb.org/t/p/w500";
 
   const { data } = useGetTheMovieDetailApiQuery("43539", {
     refetchOnMountOrArgChange: true,
@@ -25,9 +27,9 @@ export default function MovieDetail() {
     }
   );
 
-  const certificationInfo = releaseDatesData?.results.filter(
-    (f) => f.iso_3166_1 === data?.production_countries[0].iso_3166_1
-  )[0].release_dates[0].certification;
+  const { data: creditsData } = useGetTheMovieCreditsApiQuery("43539", {
+    refetchOnMountOrArgChange: true,
+  });
 
   useEffect(() => {
     setBackgroundImage(`${imageBackPath}${data?.backdrop_path}`);
@@ -95,66 +97,14 @@ export default function MovieDetail() {
               <Container>
                 <Row>
                   <Col sm={4}>
-                    <div className="left-block">
-                      <div className="image-block">
-                        <img
-                          src={`${imagePosterPath}${data?.poster_path}`}
-                          alt="Movie Footer"
-                        />
-                      </div>
-                      <div className="text-block">
-                        <div className="image-item">
-                          <picture>
-                            <source
-                              media="(min-width: 641px)"
-                              srcSet="/assets/img/streaming.webp"
-                              type="image/webp"
-                            />
-                            <img
-                              src="/assets/img/streaming.png"
-                              alt="Now Streaming on puhutv"
-                            />
-                          </picture>
-                        </div>
-                        <div className="text-item">
-                          <h4 className="streaming-text">Now Streaming</h4>
-                          <h3 className="streaming-text">Watch Now</h3>
-                        </div>
-                      </div>
-                    </div>
+                    <Poster path={data?.poster_path} />
                   </Col>
                   <Col sm={8}>
-                    <div className="right-block">
-                      <div className="title-item">
-                        <div className="title">
-                          <h2>
-                            {data?.original_title}
-                            <span>({data?.release_date.split("-")[0]})</span>
-                          </h2>
-                        </div>
-                        <div className="title-info">
-                          <span className="certification">
-                            {certificationInfo}
-                          </span>
-                          <span className="release">
-                            {data?.release_date} (
-                            {data?.production_countries[0].iso_3166_1})
-                          </span>
-                          <span className="genres">
-                            {data?.genres.map((item, index) => {
-                              return <span key={index}> {item.name}</span>;
-                            })}
-                          </span>
-                          <span className="runtime">
-                            {`${Math.floor(data?.runtime / 60)}h${
-                              data?.runtime % 60
-                            }m`}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="score-item"></div>
-                      <div className="info-item"></div>
-                    </div>
+                    <DetailInfo
+                      data={data}
+                      releaseDatesData={releaseDatesData}
+                      creditsData={creditsData}
+                    />
                   </Col>
                 </Row>
               </Container>

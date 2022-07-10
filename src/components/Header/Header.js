@@ -2,9 +2,11 @@ import React, { useRef, useEffect, useState, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { faBell } from "@fortawesome/free-solid-svg-icons";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faBell,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 
 import * as ROUTES from "../../constants/routePath";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";

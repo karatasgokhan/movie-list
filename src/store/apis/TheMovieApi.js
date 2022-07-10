@@ -10,6 +10,7 @@ export const theMovieApi = createApi({
   reducerPath: "theMovieApi",
   baseQuery: baseQuery,
   endpoints: (builder) => ({
+    //MOVIE
     getTheMovieDetailApi: builder.query({
       query: (id) => ({
         url: `/movie/${id}`,
@@ -22,10 +23,17 @@ export const theMovieApi = createApi({
         method: "GET",
       }),
     }),
+    getTheMovieCreditsApi: builder.query({
+      query: (id) => ({
+        url: `/movie/${id}/credits`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
 export const {
   useGetTheMovieDetailApiQuery,
   useGetTheMovieReleaseDatesApiQuery,
+  useGetTheMovieCreditsApiQuery,
 } = theMovieApi;

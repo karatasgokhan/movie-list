@@ -91,6 +91,14 @@
   width: 100%;
   height: 100%;
 }
+.detail-root .detail-wrapper .detail-container .detail-block .right-block p,
+.detail-root .detail-wrapper .detail-container .detail-block .right-block h4,
+.detail-root .detail-wrapper .detail-container .detail-block .right-block h2,
+.detail-root .detail-wrapper .detail-container .detail-block .right-block svg path,
+.detail-root .detail-wrapper .detail-container .detail-block .right-block span {
+  color: #fff;
+  fill: #fff;
+}
 
 .not-found-root .not-found-wrapper {
   display: flex;

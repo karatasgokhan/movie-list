@@ -3,14 +3,14 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
-export default function DropdownMenu(content) {
+export default function DropdownMenu(props) {
   return (
     <ul className="dropdown-menu-container">
-      {content?.content?.content.map((item, index) => {
+      {props?.content?.content.map((item, index) => {
         return (
           <li
             style={
-              content?.content?.header
+              props?.content?.header
                 ? { color: "#fff" }
                 : { color: "#000", fontWeight: "400" }
             }
@@ -18,7 +18,7 @@ export default function DropdownMenu(content) {
             key={index}
           >
             {item.head}
-            {!content?.content?.header ? (
+            {!props?.content?.header ? (
               <FontAwesomeIcon icon={faSortDown} />
             ) : (
               ""
