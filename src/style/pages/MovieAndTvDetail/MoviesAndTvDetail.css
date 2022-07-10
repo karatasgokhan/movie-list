@@ -75,10 +75,69 @@
   height: 100%;
 }
 .detail-root .detail-wrapper .detail-container .detail-block .right-block p,
-.detail-root .detail-wrapper .detail-container .detail-block .right-block h4,
+.detail-root .detail-wrapper .detail-container .detail-block .right-block h3,
 .detail-root .detail-wrapper .detail-container .detail-block .right-block h2,
 .detail-root .detail-wrapper .detail-container .detail-block .right-block svg path,
 .detail-root .detail-wrapper .detail-container .detail-block .right-block span {
   color: #fff;
   fill: #fff;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0 0 0;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item li {
+  margin: 0 2rem 0 0;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item li:last-child {
+  margin: 0;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item li.icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--darkBlue), 1);
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item li.play svg {
+  margin: 0 0.5rem 0 0;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item li.play span {
+  font-weight: 600;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item li.play:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item li.score .percent {
+  margin: 0 0.5rem 0 0;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item li.score span {
+  font-weight: 700;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .score-item .score {
+  display: flex;
+  align-items: center;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .info-item {
+  margin: 2rem 0 0 0;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .info-item .overview {
+  margin: 1rem 0 0 0;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .info-item .overview h3 {
+  margin: 1rem 0 0 0;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .info-item .crew-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0 0 0;
+}
+.detail-root .detail-wrapper .detail-container .detail-block .right-block .info-item .crew-item .crew .name {
+  font-weight: 700;
 }/*# sourceMappingURL=MoviesAndTvDetail.css.map */

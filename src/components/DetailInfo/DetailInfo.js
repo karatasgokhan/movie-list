@@ -41,31 +41,43 @@ export default function DetailInfo(props) {
           </span>
         </div>
       </div>
-      <div className="score-item">
-        <div className="score">
-          <span>{props?.data?.vote_average * 10}</span>
-        </div>
-        <span>User Score</span>
-        <FontAwesomeIcon icon={faList} />
-        <FontAwesomeIcon icon={faHeart} />
-        <FontAwesomeIcon icon={faBookmark} />
-        <FontAwesomeIcon icon={faStar} />
-        <div className="play">
+      <ul className="score-item">
+        <li className="score">
+          <div className="percent">
+            <span>{props?.data?.vote_average * 10}</span>
+          </div>
+          <span>
+            User <br /> Score
+          </span>
+        </li>
+        <li className="icon">
+          <FontAwesomeIcon icon={faList} />
+        </li>
+        <li className="icon">
+          <FontAwesomeIcon icon={faHeart} />
+        </li>
+        <li className="icon">
+          <FontAwesomeIcon icon={faBookmark} />
+        </li>
+        <li className="icon">
+          <FontAwesomeIcon icon={faStar} />
+        </li>
+        <li className="play">
           <FontAwesomeIcon icon={faPlay} />
           <span>Play Trailer</span>
-        </div>
-      </div>
+        </li>
+      </ul>
       <div className="info-item">
         <span className="tag">{props?.data?.tagline}</span>
         <div className="overview">
-          <h4>Overview</h4>
+          <h3>Overview</h3>
           <span>{props?.data?.overview}</span>
         </div>
         <div className="crew-item">
           {props?.creditsData?.crew?.slice(0, 4).map((item, index) => {
             return (
-              <div key={index} className="crew-item">
-                <p>{item.name}</p>
+              <div key={index} className="crew">
+                <p className="name">{item.name}</p>
                 <p>{item.job}</p>
               </div>
             );
