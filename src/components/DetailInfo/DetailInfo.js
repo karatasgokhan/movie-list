@@ -16,6 +16,10 @@ export default function DetailInfo(props) {
     (f) => f.iso_3166_1 === props?.data?.production_countries[0]?.iso_3166_1
   )[0]?.release_dates[0]?.certification;
 
+  const ratingsInfo = props?.ratingsData?.results?.filter(
+    (f) => f.iso_3166_1 === props?.data?.production_countries[0]?.iso_3166_1
+  )[0]?.rating;
+
   const icons = [
     {
       icon: <FontAwesomeIcon icon={faList} />,
@@ -50,7 +54,13 @@ export default function DetailInfo(props) {
         </div>
         <div className="title-info">
           <span className="certification">
-            {certificationInfo ? certificationInfo : "NR"}
+            {props.selectedSwitch.name === "movie"
+              ? certificationInfo
+                ? certificationInfo
+                : "NR"
+              : ratingsInfo
+              ? ratingsInfo
+              : "NR"}
           </span>
           <span className="release">
             {props.selectedSwitch.name === "movie"

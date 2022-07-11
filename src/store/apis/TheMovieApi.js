@@ -37,6 +37,13 @@ export const theMovieApi = createApi({
         method: "GET",
       }),
     }),
+    //TV
+    getTheTVRatingsApi: builder.query({
+      query: (id) => ({
+        url: `/tv/${id}/content_ratings`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -45,4 +52,5 @@ export const {
   useGetTheMovieReleaseDatesApiQuery,
   useGetTheCreditsApiQuery,
   useGetTheMoviesAndTvApiQuery,
+  useGetTheTVRatingsApiQuery,
 } = theMovieApi;

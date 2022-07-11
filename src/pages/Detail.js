@@ -10,6 +10,7 @@ import {
   useGetTheDetailApiQuery,
   useGetTheMovieReleaseDatesApiQuery,
   useGetTheCreditsApiQuery,
+  useGetTheTVRatingsApiQuery,
 } from "../store/apis/TheMovieApi";
 
 import DropdownMenu from "../components/DropdownMenu/DropdownMenu";
@@ -32,6 +33,11 @@ export default function Detail() {
 
   const { data: releaseDatesData, isLoading: releaseIsLoading } =
     useGetTheMovieReleaseDatesApiQuery(id, {
+      refetchOnMountOrArgChange: true,
+    });
+
+  const { data: ratingsData, isLoading: ratingsIsLoading } =
+    useGetTheTVRatingsApiQuery(id, {
       refetchOnMountOrArgChange: true,
     });
 
@@ -117,7 +123,10 @@ export default function Detail() {
             <DropdownMenu content={menuContent} />
           </div>
         </div>
-        {isLoading && releaseIsLoading && creditsIsLoading ? (
+        {isLoading &&
+        releaseIsLoading &&
+        creditsIsLoading &&
+        ratingsIsLoading ? (
           <SkeletonTheme
             width="100%"
             height="60vh"
@@ -147,6 +156,7 @@ export default function Detail() {
                         data={data}
                         releaseDatesData={releaseDatesData}
                         creditsData={creditsData}
+                        ratingsData={ratingsData}
                         selectedSwitch={selectedSwitch}
                       />
                     </Col>
