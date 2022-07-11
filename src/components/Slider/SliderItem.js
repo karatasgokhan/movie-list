@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import Moment from "moment";
 
 import CircularProgressbar from "../CircularProgressbar/CircularProgressbar";
 
@@ -42,8 +43,8 @@ export default function SliderItem(props) {
                   <h2>{props.selected === "movie" ? item.title : item.name}</h2>
                   <p>
                     {props.selected === "movie"
-                      ? item.release_date
-                      : item.first_air_date}
+                      ? Moment(item.release_date).format("MMM Do YY")
+                      : Moment(item.first_air_date).format("MMM Do YY")}
                   </p>
                 </div>
               </div>
