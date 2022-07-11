@@ -24,15 +24,16 @@ export const theMovieApi = createApi({
         method: "GET",
       }),
     }),
-    getTheReleaseDatesApi: builder.query({
-      query: ({ id, type }) => ({
-        url: `/${type}/${id}/release_dates`,
-        method: "GET",
-      }),
-    }),
     getTheCreditsApi: builder.query({
       query: ({ id, type }) => ({
         url: `/${type}/${id}/credits`,
+        method: "GET",
+      }),
+    }),
+    //MOVIE
+    getTheMovieReleaseDatesApi: builder.query({
+      query: (id) => ({
+        url: `/movie/${id}/release_dates`,
         method: "GET",
       }),
     }),
@@ -41,7 +42,7 @@ export const theMovieApi = createApi({
 
 export const {
   useGetTheDetailApiQuery,
-  useGetTheReleaseDatesApiQuery,
+  useGetTheMovieReleaseDatesApiQuery,
   useGetTheCreditsApiQuery,
   useGetTheMoviesAndTvApiQuery,
 } = theMovieApi;

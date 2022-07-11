@@ -5,7 +5,7 @@ import { Container, Row, Col } from "react-grid-system";
 
 import {
   useGetTheDetailApiQuery,
-  useGetTheReleaseDatesApiQuery,
+  useGetTheMovieReleaseDatesApiQuery,
   useGetTheCreditsApiQuery,
 } from "../store/apis/TheMovieApi";
 
@@ -27,15 +27,9 @@ export default function Detail() {
     { refetchOnMountOrArgChange: true }
   );
 
-  const { data: releaseDatesData } = useGetTheReleaseDatesApiQuery(
-    {
-      id: id,
-      type: selectedSwitch.name,
-    },
-    {
-      refetchOnMountOrArgChange: true,
-    }
-  );
+  const { data: releaseDatesData } = useGetTheMovieReleaseDatesApiQuery(id, {
+    refetchOnMountOrArgChange: true,
+  });
 
   const { data: creditsData } = useGetTheCreditsApiQuery(
     {
@@ -48,10 +42,22 @@ export default function Detail() {
   );
 
   useEffect(() => {
-    document.title = `${data?.original_title}(${
-      data?.release_date?.split("-")[0]
+    document.title = `${
+      selectedSwitch.name === "movie"
+        ? data?.original_title
+        : data?.original_name
+    }(${
+      selectedSwitch.name === "movie"
+        ? data?.release_date?.split("-")[0]
+        : data?.first_air_date?.split("-")[0]
     })`;
-  }, [data?.original_title, data?.release_date]);
+  }, [
+    data?.original_title,
+    data?.release_date,
+    data?.original_name,
+    selectedSwitch,
+    data?.first_air_date,
+  ]);
 
   useEffect(() => {
     setBackgroundImage(`${imageBackPath}${data?.backdrop_path}`);
@@ -126,6 +132,7 @@ export default function Detail() {
                       data={data}
                       releaseDatesData={releaseDatesData}
                       creditsData={creditsData}
+                      selectedSwitch={selectedSwitch}
                     />
                   </Col>
                 </Row>

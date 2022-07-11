@@ -13,7 +13,7 @@ import {
 
 export default function DetailInfo(props) {
   const certificationInfo = props?.releaseDatesData?.results?.filter(
-    (f) => f.iso_3166_1 === props?.data?.production_countries[0].iso_3166_1
+    (f) => f.iso_3166_1 === props?.data?.production_countries[0]?.iso_3166_1
   )[0]?.release_dates[0]?.certification;
 
   const icons = [
@@ -36,15 +36,27 @@ export default function DetailInfo(props) {
       <div className="title-item">
         <div className="title">
           <h2>
-            {props?.data?.original_title}
-            <span>({props?.data?.release_date?.split("-")[0]})</span>
+            {props.selectedSwitch.name === "movie"
+              ? props.data?.original_title
+              : props.data?.original_name}
+            <span>
+              (
+              {props.selectedSwitch.name === "movie"
+                ? props.data?.release_date?.split("-")[0]
+                : props.data?.first_air_date?.split("-")[0]}
+              )
+            </span>
           </h2>
         </div>
         <div className="title-info">
-          <span className="certification">{certificationInfo}</span>
+          <span className="certification">
+            {certificationInfo ? certificationInfo : "NR"}
+          </span>
           <span className="release">
-            {props?.data?.release_date} (
-            {props?.data?.production_countries[0].iso_3166_1})
+            {props.selectedSwitch.name === "movie"
+              ? props.data?.release_date
+              : props.data?.first_air_date}
+            ({props?.data?.production_countries[0].iso_3166_1})
           </span>
           <span className="genres dot">
             {props?.data?.genres.map((item, index) => {
@@ -56,9 +68,14 @@ export default function DetailInfo(props) {
             })}
           </span>
           <span className="runtime dot">
-            {`${Math.floor(props?.data?.runtime / 60)}h${
-              props?.data?.runtime % 60
-            }m`}
+            {props.selectedSwitch.name === "movie"
+              ? `${Math.floor(props?.data?.runtime / 60)}h${
+                  props?.data?.runtime % 60
+                }m`
+              : `${
+                  props?.data?.episode_run_time &&
+                  props?.data?.episode_run_time[0]
+                }m`}
           </span>
         </div>
       </div>
