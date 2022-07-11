@@ -10,7 +10,7 @@ export default function Search() {
           'linear-gradient(to right, rgba(var(--darkBlue), 0.8) 0%, rgba(var(--darkBlue), 0) 100%), url("/assets/img/subHeader.jpg")',
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        minHeight: "300px",
+        minHeight: "340px",
         maxHeight: "360px",
         display: "flex",
       }}

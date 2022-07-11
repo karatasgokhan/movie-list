@@ -15,29 +15,22 @@
   color: #fff;
 }
 
-.content-root {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
-  width: 100%;
-  box-sizing: border-box;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
 .content-root .content-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
+  position: relative;
 }
 .content-root .content-wrapper .content-container {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  align-content: flex-start;
-  padding-top: 30px;
+  padding: 3rem 0 0 0;
+}
+.content-root .content-wrapper .content-container::after {
+  content: "";
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  will-change: opacity;
+  pointer-events: none;
+  transition: linear 0.3s;
+  opacity: 1;
 }/*# sourceMappingURL=Home.css.map */

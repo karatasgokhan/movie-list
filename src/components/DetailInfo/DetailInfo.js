@@ -56,7 +56,7 @@ export default function DetailInfo(props) {
             {props.selectedSwitch.name === "movie"
               ? props.data?.release_date
               : props.data?.first_air_date}
-            ({props?.data?.production_countries[0].iso_3166_1})
+            ({props?.data?.production_countries[0]?.iso_3166_1})
           </span>
           <span className="genres dot">
             {props?.data?.genres.map((item, index) => {
