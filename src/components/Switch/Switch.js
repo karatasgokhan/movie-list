@@ -24,7 +24,9 @@ export default function Switch(props) {
                   JSON.stringify({ name: item.value })
                 );
               }}
-              className="switch"
+              className={`${
+                props.selected === item.value ? "switch selected" : "switch"
+              }`}
             >
               <h3>{item.name}</h3>
             </div>
