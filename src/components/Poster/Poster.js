@@ -5,7 +5,7 @@ export default function Poster(props) {
   return (
     <div className="left-block">
       <div className="image-block">
-        <img src={`${imagePosterPath}${props.path}`} alt="Movie Footer" />
+        <img src={`${imagePosterPath}${props.path}`} alt="Poster" />
       </div>
       <div className="text-block">
         <div className="image-item">

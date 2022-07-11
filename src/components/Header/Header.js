@@ -106,7 +106,7 @@ export default function Header() {
                   srcSet="/assets/img/logo.webp"
                   type="image/webp"
                 />
-                <img src="/assets/img/logo.png" alt="Movie Logo" />
+                <img src="/assets/img/logo.png" alt="Header Logo" />
               </picture>
             </NavLink>
             <DropdownMenu content={leftMenuContent} />

@@ -12,9 +12,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function DetailInfo(props) {
-  const certificationInfo = props?.releaseDatesData?.results.filter(
+  const certificationInfo = props?.releaseDatesData?.results?.filter(
     (f) => f.iso_3166_1 === props?.data?.production_countries[0].iso_3166_1
-  )[0].release_dates[0].certification;
+  )[0]?.release_dates[0]?.certification;
 
   const icons = [
     {
@@ -37,7 +37,7 @@ export default function DetailInfo(props) {
         <div className="title">
           <h2>
             {props?.data?.original_title}
-            <span>({props?.data?.release_date.split("-")[0]})</span>
+            <span>({props?.data?.release_date?.split("-")[0]})</span>
           </h2>
         </div>
         <div className="title-info">

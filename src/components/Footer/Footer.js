@@ -53,7 +53,7 @@ export default function Footer() {
                 srcSet="/assets/img/footer.webp"
                 type="image/webp"
               />
-              <img src="/assets/img/footer.png" alt="Movie Footer" />
+              <img src="/assets/img/footer.png" alt="Footer Logo" />
             </picture>
           </NavLink>
         </div>

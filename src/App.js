@@ -3,8 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./style/main.css";
 
 import Home from "./pages/Home";
-import TvDetail from "./pages/TvDetail";
-import MovieDetail from "./pages/MovieDetail";
+import Detail from "./pages/Detail";
 import NotFoundPage from "./pages/NotFoundPage";
 
 import Header from "./components/Header/Header";
@@ -27,8 +26,8 @@ function App() {
             </DefaultLayout>
           }
         />
-        <Route path={ROUTES.MOVIEDETAIL} element={<MovieDetail />} />
-        <Route path={ROUTES.TVDETAIL} element={<TvDetail />} />
+        <Route path={ROUTES.MOVIEDETAIL} element={<Detail />} />
+        <Route path={ROUTES.TVDETAIL} element={<Detail />} />
         <Route
           path={ROUTES.NOTFOUNDPAGE}
           element={

@@ -1,39 +1,55 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import { Container, Row, Col } from "react-grid-system";
 
 import {
-  useGetTheMovieDetailApiQuery,
-  useGetTheMovieReleaseDatesApiQuery,
-  useGetTheMovieCreditsApiQuery,
+  useGetTheDetailApiQuery,
+  useGetTheReleaseDatesApiQuery,
+  useGetTheCreditsApiQuery,
 } from "../store/apis/TheMovieApi";
 
 import DropdownMenu from "../components/DropdownMenu/DropdownMenu";
 import Poster from "../components/Poster/Poster";
 import DetailInfo from "../components/DetailInfo/DetailInfo";
 
-export default function MovieDetail() {
+export default function Detail() {
+  const { id } = useParams();
   const [backgroundImage, setBackgroundImage] = useState("");
   const imageBackPath = "https://image.tmdb.org/t/p/original";
+  const selectedSwitch = JSON.parse(localStorage.getItem("switch"));
 
-  const { data } = useGetTheMovieDetailApiQuery("43539", {
-    refetchOnMountOrArgChange: true,
-  });
+  const { data } = useGetTheDetailApiQuery(
+    {
+      id: id,
+      type: selectedSwitch.name,
+    },
+    { refetchOnMountOrArgChange: true }
+  );
 
-  const { data: releaseDatesData } = useGetTheMovieReleaseDatesApiQuery(
-    "43539",
+  const { data: releaseDatesData } = useGetTheReleaseDatesApiQuery(
+    {
+      id: id,
+      type: selectedSwitch.name,
+    },
     {
       refetchOnMountOrArgChange: true,
     }
   );
 
-  const { data: creditsData } = useGetTheMovieCreditsApiQuery("43539", {
-    refetchOnMountOrArgChange: true,
-  });
+  const { data: creditsData } = useGetTheCreditsApiQuery(
+    {
+      id: id,
+      type: selectedSwitch.name,
+    },
+    {
+      refetchOnMountOrArgChange: true,
+    }
+  );
 
   useEffect(() => {
     document.title = `${data?.original_title}(${
-      data?.release_date.split("-")[0]
+      data?.release_date?.split("-")[0]
     })`;
   }, [data?.original_title, data?.release_date]);
 

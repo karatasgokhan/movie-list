@@ -159,6 +159,7 @@
               }
               &.score {
                 .percent {
+                  cursor: pointer;
                   margin: 0 0.5rem 0 0;
                   width: 60px;
                   height: 60px;
@@ -177,6 +178,9 @@
                     border-radius: 50%;
                     background: black;
                     z-index: -1;
+                  }
+                  &:hover {
+                    transform: scale(1.1);
                   }
                 }
                 span {

@@ -10,22 +10,29 @@ export const theMovieApi = createApi({
   reducerPath: "theMovieApi",
   baseQuery: baseQuery,
   endpoints: (builder) => ({
-    //MOVIE
-    getTheMovieDetailApi: builder.query({
-      query: (id) => ({
-        url: `/movie/${id}`,
+    //MOVIES & TV
+    getTheMoviesAndTvApi: builder.query({
+      query: (type) => ({
+        url: `/${type}/popular`,
         method: "GET",
       }),
     }),
-    getTheMovieReleaseDatesApi: builder.query({
-      query: (id) => ({
-        url: `/movie/${id}/release_dates`,
+    //MOVIES & TV DETAIL
+    getTheDetailApi: builder.query({
+      query: ({ id, type }) => ({
+        url: `/${type}/${id}`,
         method: "GET",
       }),
     }),
-    getTheMovieCreditsApi: builder.query({
-      query: (id) => ({
-        url: `/movie/${id}/credits`,
+    getTheReleaseDatesApi: builder.query({
+      query: ({ id, type }) => ({
+        url: `/${type}/${id}/release_dates`,
+        method: "GET",
+      }),
+    }),
+    getTheCreditsApi: builder.query({
+      query: ({ id, type }) => ({
+        url: `/${type}/${id}/credits`,
         method: "GET",
       }),
     }),
@@ -33,7 +40,8 @@ export const theMovieApi = createApi({
 });
 
 export const {
-  useGetTheMovieDetailApiQuery,
-  useGetTheMovieReleaseDatesApiQuery,
-  useGetTheMovieCreditsApiQuery,
+  useGetTheDetailApiQuery,
+  useGetTheReleaseDatesApiQuery,
+  useGetTheCreditsApiQuery,
+  useGetTheMoviesAndTvApiQuery,
 } = theMovieApi;

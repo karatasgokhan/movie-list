@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
-import counterReducer from "./features/counter/counterSlice";
+import switchReducer from "./features/switchSlice";
 
 import { theMovieApi } from "./apis/TheMovieApi";
 
 export const store = configureStore({
   reducer: {
     [theMovieApi.reducerPath]: theMovieApi.reducer,
-    counterSlice: counterReducer,
+    switch: switchReducer,
   },
 
   middleware: (getDefaultMiddleware) =>
