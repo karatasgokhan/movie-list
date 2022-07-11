@@ -1,13 +1,13 @@
 .footer-root {
   background-color: rgba(var(--darkBlue), 1);
   width: 100%;
-  margin: 2rem 0 0 0;
+  margin: 3rem 0 0 0;
 }
 .footer-root .footer-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 0;
+  padding: 6rem 0;
 }
 .footer-root .footer-wrapper .left-block {
   margin: 0 2.5rem 0 0;
