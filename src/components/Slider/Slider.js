@@ -14,7 +14,7 @@ export default function Slider() {
   return (
     <div className="slider-block">
       <div className="slider-header">
-        <h2>Free To Watch</h2>
+        <h2>What's Popular</h2>
         <Switch setSelected={setSelected} selected={selected} />
       </div>
       <SliderItem data={data} selected={selected} />
