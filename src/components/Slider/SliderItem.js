@@ -18,7 +18,7 @@ export default function SliderItem(props) {
         setFade(false);
       }, 1000);
     }
-  }, [props.selected]);
+  }, [props.selected, props.isLoading]);
 
   return (
     <div className={`slider-item ${fade ? "elementToFadeInAndOut" : ""}`}>
@@ -27,6 +27,17 @@ export default function SliderItem(props) {
           return (
             <div key={index} className="cart">
               <div className="image-block">
+                <div className="dots-item">
+                  <div className="dot default">
+                    <img src="/assets/img/dots.svg" alt="Transparant Dots" />
+                  </div>
+                  <div className="dot hover">
+                    <img
+                      src="/assets/img/dotsHover.svg"
+                      alt="Transparant Blue Dots"
+                    />
+                  </div>
+                </div>
                 <div className="image-item">
                   <div
                     className="image"
