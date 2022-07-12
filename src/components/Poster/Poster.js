@@ -2,6 +2,20 @@ import React from "react";
 
 export default function Poster(props) {
   const imagePosterPath = "https://image.tmdb.org/t/p/w500";
+
+  // const logoPath = props.providersData?.results?.filter(
+  //   (f) => f === props.production
+  // );
+
+  // const arr = [];
+  // Object.keys(props.providersData?.results).forEach((key) =>
+  //   arr.push({ name: key, value: props.providersData?.results[key] })
+  // );
+
+  // console.log("providersData", arr);
+  // console.log("production", props.production);
+  // console.log("logoPath", logoPath);
+
   return (
     <div className="left-block">
       <div className="image-block">

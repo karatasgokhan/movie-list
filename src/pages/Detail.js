@@ -11,6 +11,7 @@ import {
   useGetTheMovieReleaseDatesApiQuery,
   useGetTheCreditsApiQuery,
   useGetTheTVRatingsApiQuery,
+  useGetTheProvidersApiQuery,
 } from "../store/apis/TheMovieApi";
 
 import DropdownMenu from "../components/DropdownMenu/DropdownMenu";
@@ -43,6 +44,17 @@ export default function Detail() {
 
   const { data: creditsData, isLoading: creditsIsLoading } =
     useGetTheCreditsApiQuery(
+      {
+        id: id,
+        type: selectedSwitch.name,
+      },
+      {
+        refetchOnMountOrArgChange: true,
+      }
+    );
+
+  const { data: providersData, isLoading: providersIsLoading } =
+    useGetTheProvidersApiQuery(
       {
         id: id,
         type: selectedSwitch.name,
@@ -126,7 +138,8 @@ export default function Detail() {
         {isLoading &&
         releaseIsLoading &&
         creditsIsLoading &&
-        ratingsIsLoading ? (
+        ratingsIsLoading &&
+        providersIsLoading ? (
           <SkeletonTheme
             width="100%"
             height="60vh"
@@ -149,7 +162,11 @@ export default function Detail() {
                 <Container>
                   <Row>
                     <Col sm={3}>
-                      <Poster path={data?.poster_path} />
+                      <Poster
+                        providersData={providersData}
+                        production={data.production_countries[0].iso_3166_1}
+                        path={data?.poster_path}
+                      />
                     </Col>
                     <Col sm={9}>
                       <DetailInfo
