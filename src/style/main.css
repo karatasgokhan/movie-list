@@ -483,6 +483,9 @@
 .dropdown-menu-container .dropdown-menu-block:last-child {
   margin: 0;
 }
+.dropdown-menu-container .dropdown-menu-block.detail:first-child {
+  border-bottom: 4px solid #01b4e4;
+}
 
 .slider-block {
   width: 100%;
@@ -512,7 +515,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1em;
+  font-size: 1rem;
   padding: 4px 20px;
   font-weight: 600;
 }
@@ -630,7 +633,7 @@
   margin: 4rem 0 0 0;
 }
 .default-layout-root .default-layout-wrapper {
-  max-width: 80rem;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
