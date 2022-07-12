@@ -11,7 +11,7 @@ export default function Slider() {
   const [progress, setProgress] = useState(0);
   const [visibleBar, setVisibleBar] = useState(false);
   const [selected, setSelected] = useState("movie");
-  const { data } = useGetTheMoviesAndTvApiQuery(selected, {
+  const { data, isLoading } = useGetTheMoviesAndTvApiQuery(selected, {
     refetchOnMountOrArgChange: true,
   });
 
@@ -40,7 +40,7 @@ export default function Slider() {
           <h2>What's Popular</h2>
           <Switch setSelected={setSelected} selected={selected} />
         </div>
-        <SliderItem data={data} selected={selected} />
+        <SliderItem data={data} selected={selected} isLoading={isLoading} />
       </div>
     </>
   );

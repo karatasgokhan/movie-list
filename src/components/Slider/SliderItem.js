@@ -13,9 +13,11 @@ export default function SliderItem(props) {
 
   useEffect(() => {
     setFade(true);
-    setTimeout(() => {
-      setFade(false);
-    }, 1000);
+    if (!props.isLoading) {
+      setTimeout(() => {
+        setFade(false);
+      }, 1000);
+    }
   }, [props.selected]);
 
   return (
