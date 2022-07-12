@@ -13,9 +13,10 @@
 }
 .lb-root .lb-block {
   background-color: #ffffff;
-  max-width: 90%;
-  width: 76%;
-  height: 85%;
+  max-width: 1467px;
+  max-height: 760px;
+  width: 100%;
+  height: 100%;
 }
 .lb-root .lb-block .head-item {
   display: flex;
