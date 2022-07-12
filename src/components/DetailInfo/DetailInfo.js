@@ -1,5 +1,7 @@
 import React from "react";
 
+import Moment from "moment";
+
 import CircularProgressbar from "../CircularProgressbar/CircularProgressbar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -64,8 +66,8 @@ export default function DetailInfo(props) {
           </span>
           <span className="release">
             {props.selectedSwitch.name === "movie"
-              ? props.data?.release_date
-              : props.data?.first_air_date}
+              ? Moment(props.data?.release_date).format("DD/MM/YYYY")
+              : Moment(props.data?.first_air_date).format("DD/MM/YYYY")}{" "}
             ({props?.data?.production_countries[0]?.iso_3166_1})
           </span>
           <span className="genres dot">
