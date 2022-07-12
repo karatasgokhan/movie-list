@@ -4,8 +4,6 @@ import { useParams } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-import { Container, Row, Col } from "react-grid-system";
-
 import {
   useGetTheDetailApiQuery,
   useGetTheMovieReleaseDatesApiQuery,
@@ -159,26 +157,21 @@ export default function Detail() {
           >
             <div className="detail-container">
               <div className="detail-block">
-                <Container>
-                  <Row>
-                    <Col sm={3}>
-                      <Poster
-                        providersData={providersData}
-                        production={data.production_countries[0].iso_3166_1}
-                        path={data?.poster_path}
-                      />
-                    </Col>
-                    <Col sm={9}>
-                      <DetailInfo
-                        data={data}
-                        releaseDatesData={releaseDatesData}
-                        creditsData={creditsData}
-                        ratingsData={ratingsData}
-                        selectedSwitch={selectedSwitch}
-                      />
-                    </Col>
-                  </Row>
-                </Container>
+                <div className="detail-item">
+                  <Poster
+                    providersData={providersData}
+                    production={data?.production_countries[0]?.iso_3166_1}
+                    path={data?.poster_path}
+                  />
+
+                  <DetailInfo
+                    data={data}
+                    releaseDatesData={releaseDatesData}
+                    creditsData={creditsData}
+                    ratingsData={ratingsData}
+                    selectedSwitch={selectedSwitch}
+                  />
+                </div>
               </div>
             </div>
           </div>
