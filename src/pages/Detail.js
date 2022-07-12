@@ -12,6 +12,7 @@ import {
   useGetTheCreditsApiQuery,
   useGetTheTVRatingsApiQuery,
   useGetTheProvidersApiQuery,
+  useGetTheVideosApiQuery,
 } from "../store/apis/TheMovieApi";
 
 import DropdownMenu from "../components/DropdownMenu/DropdownMenu";
@@ -25,6 +26,14 @@ export default function Detail() {
   const selectedSwitch = JSON.parse(localStorage.getItem("switch"));
 
   const { data, isLoading } = useGetTheDetailApiQuery(
+    {
+      id: id,
+      type: selectedSwitch.name,
+    },
+    { refetchOnMountOrArgChange: true }
+  );
+
+  const { data: videosData } = useGetTheVideosApiQuery(
     {
       id: id,
       type: selectedSwitch.name,
@@ -180,6 +189,7 @@ export default function Detail() {
                     releaseDatesData={releaseDatesData}
                     creditsData={creditsData}
                     ratingsData={ratingsData}
+                    videosData={videosData}
                     selectedSwitch={selectedSwitch}
                   />
                 </div>

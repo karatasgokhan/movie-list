@@ -24,6 +24,12 @@ export const theMovieApi = createApi({
         method: "GET",
       }),
     }),
+    getTheVideosApi: builder.query({
+      query: ({ id, type }) => ({
+        url: `/${type}/${id}/videos`,
+        method: "GET",
+      }),
+    }),
     getTheCreditsApi: builder.query({
       query: ({ id, type }) => ({
         url: `/${type}/${id}/credits`,
@@ -60,4 +66,5 @@ export const {
   useGetTheMoviesAndTvApiQuery,
   useGetTheTVRatingsApiQuery,
   useGetTheProvidersApiQuery,
+  useGetTheVideosApiQuery,
 } = theMovieApi;

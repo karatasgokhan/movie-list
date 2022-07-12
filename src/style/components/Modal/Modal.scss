@@ -1,0 +1,56 @@
+.lb-root {
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .lb-block {
+    background-color: #ffffff;
+    max-width: 90%;
+    width: 76%;
+    height: 85%;
+    .head-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #000000;
+      padding: 1rem;
+      h3 {
+        color: #ffffff;
+        font-size: 1.25rem;
+      }
+      .close-item {
+        cursor: pointer;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          path {
+            fill: #3c4249;
+          }
+        }
+        &:hover {
+          transform: scale(1.1);
+          svg {
+            path {
+              fill: #fff;
+            }
+          }
+        }
+      }
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
