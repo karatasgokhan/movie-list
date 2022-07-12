@@ -47,6 +47,25 @@
     position: relative;
     top: 0;
     left: 0;
+    &.elementToFadeInAndOut {
+      opacity: 1;
+      animation: fade 2s linear;
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 3;
+      }
+      80% {
+        opacity: 5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
     .slider {
       &::-webkit-scrollbar {
         height: 8px;

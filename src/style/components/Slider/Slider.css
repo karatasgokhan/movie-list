@@ -47,6 +47,39 @@
   top: 0;
   left: 0;
 }
+.slider-block .slider-item.elementToFadeInAndOut {
+  opacity: 1;
+  -webkit-animation: fade 2s linear;
+          animation: fade 2s linear;
+}
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 3;
+  }
+  80% {
+    opacity: 5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 3;
+  }
+  80% {
+    opacity: 5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .slider-block .slider-item .slider {
   width: 100%;
   overflow-x: scroll;

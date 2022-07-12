@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Moment from "moment";
 
@@ -7,11 +7,19 @@ import CircularProgressbar from "../CircularProgressbar/CircularProgressbar";
 import * as ROUTES from "../../constants/routePath";
 
 export default function SliderItem(props) {
+  const [fade, setFade] = useState(false);
   const navigate = useNavigate();
   const imagePosterPath = "https://image.tmdb.org/t/p/w500";
 
+  useEffect(() => {
+    setFade(true);
+    setTimeout(() => {
+      setFade(false);
+    }, 1000);
+  }, [props.selected]);
+
   return (
-    <div className="slider-item">
+    <div className={`slider-item ${fade ? "elementToFadeInAndOut" : ""}`}>
       <div className="slider">
         {props.data?.results?.map((item, index) => {
           return (
