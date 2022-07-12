@@ -19,9 +19,9 @@ export default function Header() {
     (e) => {
       const window = e.currentTarget;
       if (y > window.scrollY) {
-        headerRoot.current.classList.remove("header-remove");
+        headerRoot?.current?.classList?.remove("header-remove");
       } else if (y < window.scrollY) {
-        headerRoot.current.classList.add("header-remove");
+        headerRoot?.current.classList?.add("header-remove");
       }
       setY(window.scrollY);
     },

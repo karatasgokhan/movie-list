@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
+import getDetailBackgroundColor from "../helper/detailBackgroundColor";
+
 import {
   useGetTheDetailApiQuery,
   useGetTheMovieReleaseDatesApiQuery,
@@ -155,7 +157,16 @@ export default function Detail() {
               backgroundSize: "cover",
             }}
           >
-            <div className="detail-container">
+            <div
+              className="detail-container"
+              style={{
+                backgroundImage: `linear-gradient(to right, rgba(${getDetailBackgroundColor(
+                  data?.vote_average * 10
+                )}, 1) 150px, rgba(${getDetailBackgroundColor(
+                  data?.vote_average * 10
+                )}, 0.84) 100%)`,
+              }}
+            >
               <div className="detail-block">
                 <div className="detail-item">
                   <Poster
