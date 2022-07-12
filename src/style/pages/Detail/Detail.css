@@ -133,7 +133,7 @@
 .detail-root .detail-wrapper .detail-container .detail-block .detail-item .right-block .score-item {
   display: flex;
   align-items: center;
-  margin: 2rem 0 0 0;
+  margin: 24px 0 0 0;
 }
 .detail-root .detail-wrapper .detail-container .detail-block .detail-item .right-block .score-item li {
   margin: 0 2rem 0 0;

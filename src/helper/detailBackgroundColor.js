@@ -5,7 +5,7 @@ export const getDetailBackgroundColor = (score) => {
       color = "31.5, 52.5, 94.5";
       break;
     case score > 39:
-      color = "241.5, 199.5, 10.5";
+      color = "166, 151, 54 ";
       break;
     case score > 0:
       color = "31.5, 10.5, 10.5, 1";
