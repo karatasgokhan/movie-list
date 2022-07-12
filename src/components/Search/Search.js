@@ -14,7 +14,9 @@ export default function Search() {
   return (
     <section
       style={{
-        backgroundImage: `linear-gradient(to right, rgba(var(--darkBlue), 0.8) 0%, rgba(var(--darkBlue), 0) 100%), url("/assets/img/homeSubHeaderBackground/${ChangeBackgorundOnPageRefresh()}.jpg")`,
+        backgroundImage: `linear-gradient(to right, rgba(var(--darkBlue), 0.8) 0%, rgba(var(--darkBlue), 0) 100%), url("/assets/img/homeSubHeaderBackground/${
+          !ChangeBackgorundOnPageRefresh() ? 1 : ChangeBackgorundOnPageRefresh()
+        }.jpg")`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         minHeight: "340px",
