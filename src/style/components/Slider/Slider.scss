@@ -84,6 +84,19 @@
         min-width: 150px;
         margin: 0 0 0 20px;
         cursor: pointer;
+        position: relative;
+        .blur-item {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(20px);
+          width: 100%;
+          height: 100%;
+          border-radius: 0.5rem;
+          z-index: 5;
+          transition: linear 0.1s;
+        }
         .image-block {
           box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
           position: relative;
@@ -114,6 +127,51 @@
                 }
                 &.default {
                   display: none;
+                }
+              }
+            }
+            .slider-dropdown-menu {
+              box-shadow: rgba(0, 0, 0, 0.35) 0px 0.4rem 1rem;
+              width: auto;
+              height: auto;
+              display: block;
+              z-index: 6;
+              top: 28px;
+              left: -60px;
+              box-sizing: content-box;
+              position: absolute;
+              background-color: #fff;
+              border-radius: 0.25rem;
+              border: 1px solid rgba(33, 37, 41, 0.15);
+
+              ul {
+                li {
+                  padding: 4px 0;
+                  font-size: 13px;
+                  font-weight: 400;
+                  white-space: nowrap;
+                  color: #000;
+                  border-bottom: 1px solid rgba(33, 37, 41, 0.15);
+                  .dropdown {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding: 6px 20px;
+                    svg {
+                      margin: 0 4px 0 0;
+                    }
+                  }
+                  &:hover {
+                    .dropdown {
+                      background-color: rgba(var(--darkBlue));
+                      color: #fff;
+                      svg {
+                        path {
+                          fill: #fff;
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
