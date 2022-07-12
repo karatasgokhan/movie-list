@@ -109,7 +109,7 @@ export default function Header() {
                 <img src="/assets/img/logo.png" alt="Header Logo" />
               </picture>
             </NavLink>
-            <DropdownMenu content={leftMenuContent} />
+            <DropdownMenu content={leftMenuContent} detail={false} />
           </div>
           <div className="right-block">
             <ul>

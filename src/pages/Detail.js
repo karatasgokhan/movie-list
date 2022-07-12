@@ -130,7 +130,7 @@ export default function Detail() {
       <div className="detail-root">
         <div className="dropdown-detail-root">
           <div className="dropdown-detail-wrapper">
-            <DropdownMenu content={menuContent} />
+            <DropdownMenu content={menuContent} detail={true} />
           </div>
         </div>
         {isLoading &&

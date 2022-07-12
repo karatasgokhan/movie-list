@@ -14,7 +14,7 @@ export default function DropdownMenu(props) {
                 ? { color: "#fff" }
                 : { color: "#000", fontWeight: "400" }
             }
-            className="dropdown-menu-block"
+            className={`dropdown-menu-block ${props.detail ? "detail" : ""}`}
             key={index}
           >
             {item.head}

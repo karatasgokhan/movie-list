@@ -45,4 +45,7 @@
 }
 .dropdown-menu-container .dropdown-menu-block:last-child {
   margin: 0;
+}
+.dropdown-menu-container .dropdown-menu-block.detail:first-child {
+  border-bottom: 4px solid #01b4e4;
 }/*# sourceMappingURL=DropdownMenu.css.map */

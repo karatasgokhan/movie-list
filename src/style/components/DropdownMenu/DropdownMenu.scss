@@ -48,5 +48,10 @@
     &:last-child {
       margin: 0;
     }
+    &.detail {
+      &:first-child {
+        border-bottom: 4px solid #01b4e4;
+      }
+    }
   }
 }
