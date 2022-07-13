@@ -1,3 +1,6 @@
+.hamburger-menu-container {
+  display: none;
+}
 .hamburger-menu-container .hamburger-menu {
   transition: all 0.3s linear;
   height: 100vh;
@@ -5,7 +8,6 @@
   position: absolute;
   left: 0;
   top: 57px;
-  background-color: red;
   background: rgba(var(--darkBlue), 0.9);
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
