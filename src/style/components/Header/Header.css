@@ -25,8 +25,9 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 75rem;
+  max-width: 1200px;
   padding: 0 2.5rem;
+  position: relative;
 }
 .header-root .header-wrapper .header-container .left-block {
   display: flex;
@@ -41,6 +42,9 @@
 .header-root .header-wrapper .header-container .left-block .logo-item img {
   display: block;
   width: 100%;
+}
+.header-root .header-wrapper .header-container .left-block.mobil {
+  display: none;
 }
 .header-root .header-wrapper .header-container .right-block ul {
   display: flex;

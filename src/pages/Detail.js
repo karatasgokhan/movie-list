@@ -21,8 +21,11 @@ import DetailInfo from "../components/DetailInfo/DetailInfo";
 
 export default function Detail() {
   const { id } = useParams();
+  const [windowSize, setWindowSize] = useState(getWindowSize());
   const [backgroundImage, setBackgroundImage] = useState("");
   const imageBackPath = "https://image.tmdb.org/t/p/original";
+  const imageBackPathMobil =
+    "https://image.tmdb.org/t/p/w1000_and_h450_multi_faces";
   const selectedSwitch = JSON.parse(localStorage.getItem("switch"));
 
   const { data, isLoading } = useGetTheDetailApiQuery(
@@ -90,9 +93,29 @@ export default function Detail() {
     selectedSwitch,
     data?.first_air_date,
   ]);
+  function getWindowSize() {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  }
 
   useEffect(() => {
-    setBackgroundImage(`${imageBackPath}${data?.backdrop_path}`);
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (windowSize.innerWidth > 992) {
+      setBackgroundImage(`${imageBackPath}${data?.backdrop_path}`);
+    } else {
+      setBackgroundImage(`${imageBackPathMobil}${data?.backdrop_path}`);
+    }
   }, [data]);
 
   const menuContent = {
@@ -157,7 +180,7 @@ export default function Detail() {
           >
             <Skeleton />
           </SkeletonTheme>
-        ) : (
+        ) : windowSize.innerWidth > 992 ? (
           <div
             className="detail-wrapper"
             style={{
@@ -181,6 +204,7 @@ export default function Detail() {
                   <Poster
                     providersData={providersData}
                     production={data?.production_countries[0]?.iso_3166_1}
+                    mobil={false}
                     path={data?.poster_path}
                   />
 
@@ -192,6 +216,48 @@ export default function Detail() {
                     videosData={videosData}
                     selectedSwitch={selectedSwitch}
                   />
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="detail-wrapper">
+            <div className="detail-container">
+              <div className="detail-block">
+                <div className="detail-item">
+                  <div
+                    className="top-block"
+                    style={{
+                      backgroundImage: "url(" + backgroundImage + ")",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                    }}
+                  >
+                    <div
+                      className="top-item"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to right, rgba(31.5, 31.5, 10.5, 1) 20%, rgba(31.5, 31.5, 10.5, 0) 50%)",
+                      }}
+                    >
+                      <Poster
+                        providersData={providersData}
+                        production={data?.production_countries[0]?.iso_3166_1}
+                        mobil={true}
+                        path={data?.poster_path}
+                      />
+                    </div>
+                  </div>
+                  <div className="bottom-block">
+                    <DetailInfo
+                      data={data}
+                      releaseDatesData={releaseDatesData}
+                      creditsData={creditsData}
+                      ratingsData={ratingsData}
+                      videosData={videosData}
+                      selectedSwitch={selectedSwitch}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

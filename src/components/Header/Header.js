@@ -8,11 +8,14 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 
+import Hamburger from "hamburger-react";
+
 import * as ROUTES from "../../constants/routePath";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 
 export default function Header() {
   let headerRoot = useRef();
+  const [openMobilMenu, setOpenMobilMenu] = useState(false);
   const [y, setY] = useState(window.scrollY);
 
   const handleNavigation = useCallback(
@@ -98,7 +101,22 @@ export default function Header() {
     <header ref={headerRoot} className="header-root">
       <div className="header-wrapper">
         <div className="header-container">
-          <div className="left-block">
+          <div className="hamburger-menu-container">
+            <Hamburger
+              toggled={openMobilMenu}
+              toggle={setOpenMobilMenu}
+              color="#fff"
+              distance="sm"
+              size={20}
+              label="Show menu"
+            />
+            {openMobilMenu && (
+              <div className="hamburger-menu">
+                <DropdownMenu content={leftMenuContent} detail={false} />
+              </div>
+            )}
+          </div>
+          <div className="left-block desktop">
             <NavLink to={ROUTES.HOME} className="logo-item">
               <picture>
                 <source
@@ -111,11 +129,28 @@ export default function Header() {
             </NavLink>
             <DropdownMenu content={leftMenuContent} detail={false} />
           </div>
+          <div className="left-block mobil">
+            <NavLink to={ROUTES.HOME} className="logo-item">
+              <picture>
+                <source
+                  media="(min-width: 641px)"
+                  srcSet="/assets/img/footer.webp"
+                  type="image/webp"
+                />
+                <img src="/assets/img/footer.png" alt="Header Mobil Logo" />
+              </picture>
+            </NavLink>
+          </div>
           <div className="right-block">
             <ul>
               {rightMenuContent.map((item, index) => {
                 return (
-                  <li className={`${item.search ? "search" : ""}`} key={index}>
+                  <li
+                    className={`${item.search ? "search" : ""}${
+                      index === 0 || index === 1 ? "mobil" : ""
+                    }`}
+                    key={index}
+                  >
                     {item.value}
                   </li>
                 );

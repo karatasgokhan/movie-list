@@ -120,7 +120,7 @@ export default function DetailInfo(props) {
             <span>{props?.data?.overview}</span>
           </div>
           <div className="crew-item">
-            {props?.creditsData?.crew?.slice(0, 4).map((item, index) => {
+            {props?.creditsData?.crew?.slice(0, 3).map((item, index) => {
               return (
                 <div key={index} className="crew">
                   <p className="name">{item.name}</p>

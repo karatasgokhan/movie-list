@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Poster(props) {
+  const [windowSize, setWindowSize] = useState(getWindowSize());
   const imagePosterPath = "https://image.tmdb.org/t/p/w500";
+  const imagePosterPathMobil = "https://image.tmdb.org/t/p/w116_and_h174_face";
   const propertyNames =
     props.providersData?.results && Object.keys(props.providersData?.results);
   const index =
@@ -26,25 +28,49 @@ export default function Poster(props) {
     array[index]?.flatrate[0]?.logo_path &&
     array[index]?.flatrate[0]?.logo_path;
 
+  function getWindowSize() {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  }
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
   return (
     <div className="left-block">
       <div className="image-block">
-        <img src={`${imagePosterPath}${props.path}`} alt="Poster" />
+        <img
+          src={`${
+            windowSize.innerWidth > 992 ? imagePosterPath : imagePosterPathMobil
+          }${props.path}`}
+          alt="Poster"
+        />
       </div>
-      <div className="text-block">
-        {logoPath && (
-          <div className="image-item">
-            <img
-              src={`${imagePosterPath}${logoPath}`}
-              alt={array[index].flatrate[0].provider_name}
-            />
+      {!props.mobil && (
+        <div className="text-block">
+          {logoPath && (
+            <div className="image-item">
+              <img
+                src={`${imagePosterPath}${logoPath}`}
+                alt={array[index].flatrate[0].provider_name}
+              />
+            </div>
+          )}
+          <div className="text-item">
+            <h4 className="streaming-text">Now Streaming</h4>
+            <h3 className="streaming-text">Watch Now</h3>
           </div>
-        )}
-        <div className="text-item">
-          <h4 className="streaming-text">Now Streaming</h4>
-          <h3 className="streaming-text">Watch Now</h3>
         </div>
-      </div>
+      )}
     </div>
   );
 }
