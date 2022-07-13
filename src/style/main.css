@@ -938,9 +938,10 @@
     text-align: center;
   }
   .detail-root .detail-wrapper .detail-container .detail-block .detail-item .bottom-block .right-block .title-item .title h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    padding: 0 0 10px 0;
   }
-  .detail-root .detail-wrapper .detail-container .detail-block .detail-item .bottom-block .right-block .title-item .tite-info {
+  .detail-root .detail-wrapper .detail-container .detail-block .detail-item .bottom-block .right-block .title-item .title-info {
     font-size: 0.7rem;
   }
   .detail-root .detail-wrapper .detail-container .detail-block .detail-item .bottom-block .right-block .score-item {
