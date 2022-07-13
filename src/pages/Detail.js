@@ -116,7 +116,7 @@ export default function Detail() {
     } else {
       setBackgroundImage(`${imageBackPathMobil}${data?.backdrop_path}`);
     }
-  }, [data]);
+  }, [data, windowSize.innerWidth]);
 
   const menuContent = {
     header: false,
@@ -158,6 +158,8 @@ export default function Detail() {
       },
     ],
   };
+
+  console.log("data", data);
 
   return (
     <>
