@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 
 export default function Switch(props) {
   const switchData = [
-    { name: "Movies", value: "movie" },
-    { name: "TV", value: "tv" },
+    { name: "Streaming", value: "movie" },
+    { name: "on TV", value: "tv" },
   ];
 
   useEffect(() => {
