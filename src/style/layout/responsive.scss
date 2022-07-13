@@ -192,6 +192,58 @@
 }
 
 @media only screen and (max-width: 576px) {
+  .search-wrapper {
+    padding: 1.6rem 1rem;
+  }
+  .dropdown-menu-container {
+    .dropdown-menu-block {
+      .dropdown-menu-item {
+        left: -25px;
+        ul {
+          li {
+            padding: 0.5rem 1.5rem 0.8rem 0.8rem;
+          }
+        }
+      }
+    }
+  }
+  .content-root {
+    .content-wrapper {
+      .slider-block {
+        .slider-header {
+          h2 {
+            font-size: 1rem;
+          }
+          .switch-block {
+            .switch-item {
+              .switch {
+                h3 {
+                  font-size: 0.8rem;
+                }
+              }
+            }
+          }
+        }
+        .slider-item {
+          .slider {
+            padding: 1rem 0;
+            .cart {
+              .slider-content {
+                .text-item {
+                  h2 {
+                    font-size: 0.8rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .content-container {
+        padding: 1rem 0 0 0;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 441px) {
