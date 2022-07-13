@@ -159,8 +159,6 @@ export default function Detail() {
     ],
   };
 
-  console.log("data", data);
-
   return (
     <>
       <div className="detail-root">
